@@ -14,13 +14,13 @@ public class StudentList {
         if (args[0].equals("a")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader s = new BufferedReader(
+                BufferedReader bufferedReader = new BufferedReader(
                                    new InputStreamReader(
                                    new FileInputStream("students.txt")));
-                String r = s.readLine();
-                String i[] = r.split(",");
-                for (String j : i) {
-                    System.out.println(j.trim());
+                String readLine = bufferedReader.readLine();
+                String students[] = readLine.split(",");
+                for (String student : students) {
+                    System.out.println(student.trim());
                 }
             } catch (Exception e) {
             }
@@ -28,29 +28,29 @@ public class StudentList {
         } else if (args[0].equals("r")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader s = new BufferedReader(
+                BufferedReader bufferedReader = new BufferedReader(
                                    new InputStreamReader(
                                    new FileInputStream("students.txt")));
-                String r = s.readLine();
-                String i[] = r.split(",");
-                Random x = new Random();
-                int y = x.nextInt(i.length);
-                System.out.println(i[y]);
+                String readLine = bufferedReader.readLine();
+                String students[] = readLine.split(",");
+                Random random = new Random();
+                int randomInt = random.nextInt(students.length);
+                System.out.println(students[randomInt]);
             } catch (Exception e) {
             }
             System.out.println("Data Loaded.");
         } else if (args[0].contains("+")) {
             System.out.println("Loading data ...");
             try {
-                BufferedWriter s = new BufferedWriter(
+                BufferedWriter bufferedWriter = new BufferedWriter(
                                    new FileWriter("students.txt", true));
-                String t = args[0].substring(1);
-                Date d = new Date();
-                String df = "dd/mm/yyyy-hh:mm:ss a";
-                DateFormat dateFormat = new SimpleDateFormat(df);
-                String fd = dateFormat.format(d);
-                s.write(", " + t + "\nList last updated on " + fd);
-                s.close();
+                String substring = args[0].substring(1);
+                Date date = new Date();
+                String finalDate = "dd/mm/yyyy-hh:mm:ss a";
+                DateFormat dateFormat = new SimpleDateFormat(finalDate);
+                String fd = dateFormat.format(date);
+                bufferedWriter.write(", " + substring + "\nList last updated on " + fd);
+                bufferedWriter.close();
             } catch (Exception e) {
             }
 
