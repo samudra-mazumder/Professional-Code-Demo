@@ -4,38 +4,39 @@ import java.util.*;
 
 public class StudentList {
     public static void main(String[] args) {
-        String readLine = fileReader("students.txt");
+        String readLine = fileReader(Constant.FILE_NAME);
 //		Check arguments
         if(args == null || args.length!=1){
             System.out.println("Wrong Argument");
             return;
         }
 
-        if (args[0].equals("a")) {
-            System.out.println("Loading data ...");
+        if (args[0].equals(Constant.ShowAll)) {
+            System.out.println(Constant.DataLoadedText);
             try {
 
 
-                String students[] = readLine.split(",");
+                String students[] = readLine.split(Constant.StudentEntryDelimeter);
                 for (String student : students) {
                     System.out.println(student.trim());
                 }
             } catch (Exception e) {
             }
-            System.out.println("Data Loaded.");
-        } else if (args[0].equals("r")) {
-            System.out.println("Loading data ...");
+            System.out.println(Constant.DataLoadedText);
+        } else if (args[0].equals(Constant.ShowRandom)) {
+            System.out.println(Constant.LoadingDataText);
             try {
 
-                String students[] = readLine.split(",");
+                String students[] = readLine.split(Constant.StudentEntryDelimeter
+                );
                 Random random = new Random();
                 int randomInt = random.nextInt(students.length);
                 System.out.println(students[randomInt]);
             } catch (Exception e) {
             }
-            System.out.println("Data Loaded.");
-        } else if (args[0].contains("+")) {
-            System.out.println("Loading data ...");
+            System.out.println(Constant.DataLoadedText);
+        } else if (args[0].contains(Constant.AddEntry)) {
+            System.out.println(Constant.LoadingDataText);
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(
                                                 new FileWriter("students.txt", true));
@@ -49,25 +50,25 @@ public class StudentList {
             } catch (Exception e) {
             }
 
-            System.out.println("Data Loaded.");
-        } else if (args[0].contains("?")) {
-            System.out.println("Loading data ...");
+            System.out.println(Constant.DataLoadedText);
+        } else if (args[0].contains(Constant.AddEntry)) {
+            System.out.println(Constant.LoadingDataText);
             try {
 
-                String i[] = readLine.split(",");
+                String i[] = readLine.split(Constant.StudentEntryDelimeter);
                 boolean done = false;
                 String t = args[0].substring(1);
                 for (int idx = 0; idx < i.length && !done; idx++) {
                     if (i[idx].trim().equals(t)) {
-                        System.out.println("We found it!");
+                        System.out.println(Constant.FoundText);
                         done = true;
                     }
                 }
             } catch (Exception e) {
             }
-            System.out.println("Data Loaded.");
-        } else if (args[0].equals("c")) {
-            System.out.println("Loading data ...");
+            System.out.println(Constant.DataLoadedText);
+        } else if (args[0].equals(Constant.ShowCount)) {
+            System.out.println(Constant.LoadingDataText);
             try {
 
                 char a[] = readLine.toCharArray();
@@ -83,10 +84,10 @@ public class StudentList {
                         }
                     }
                 }
-                System.out.println(count + " word(s) found ");
+                System.out.println(count + Constant.WordsFound);
             } catch (Exception e) {
             }
-            System.out.println("Data Loaded.");
+            System.out.println(Constant.DataLoadedText);
         }
         else{
             System.out.println("Wrong argument");
