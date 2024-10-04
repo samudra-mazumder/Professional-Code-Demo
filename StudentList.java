@@ -70,20 +70,8 @@ public class StudentList {
             System.out.println(Constant.LoadingDataText);
             try {
 
-                char a[] = readLine.toCharArray();
-                boolean in_word = false;
-                int count = 0;
-                for (char c : a) {
-                    if (c == ' ') {
-                        if (!in_word) {
-                            count++;
-                            in_word = true;
-                        } else {
-                            in_word = false;
-                        }
-                    }
-                }
-                System.out.println(count + Constant.WordsFound);
+                String i[] = readLine.split(Constant.StudentEntryDelimeter);
+                System.out.println(i.length + Constant.WordsFound);
             } catch (Exception e) {
             }
             System.out.println(Constant.DataLoadedText);
