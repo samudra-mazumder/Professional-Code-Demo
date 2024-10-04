@@ -55,12 +55,12 @@ public class StudentList {
             try {
 
                 String i[] = readLine.split(Constant.StudentEntryDelimeter);
-                boolean done = false;
+
                 String t = args[0].substring(1);
-                for (int idx = 0; idx < i.length && !done; idx++) {
+                for (int idx = 0; idx < i.length ; idx++) {
                     if (i[idx].trim().equals(t)) {
                         System.out.println(Constant.FoundText);
-                        done = true;
+                     break;
                     }
                 }
             } catch (Exception e) {
