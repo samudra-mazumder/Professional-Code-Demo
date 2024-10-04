@@ -29,8 +29,7 @@ public class StudentList {
 
                 String students[] = readLine.split(Constant.StudentEntryDelimeter
                 );
-                Random random = new Random();
-                int randomInt = random.nextInt(students.length);
+                int randomInt = new Random().nextInt(students.length);
                 System.out.println(students[randomInt]);
             } catch (Exception e) {
             }
