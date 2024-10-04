@@ -6,6 +6,11 @@ public class StudentList {
     public static void main(String[] args) {
 
 //		Check arguments
+        if(args == null || args.length!=1){
+            System.out.println("Wrong Argument");
+            return;
+        }
+
         if (args[0].equals("a")) {
             System.out.println("Loading data ...");
             try {
@@ -69,7 +74,7 @@ public class StudentList {
             } catch (Exception e) {
             }
             System.out.println("Data Loaded.");
-        } else if (args[0].contains("c")) {
+        } else if (args[0].equals("c")) {
             System.out.println("Loading data ...");
             try {
                 BufferedReader s = new BufferedReader(
@@ -93,6 +98,9 @@ public class StudentList {
             } catch (Exception e) {
             }
             System.out.println("Data Loaded.");
+        }
+        else{
+            System.out.println("Wrong argument");
         }
     }
 }
