@@ -3,14 +3,15 @@ import java.text.*;
 import java.util.*;
 
 public class StudentList {
+    // main method
     public static void main(String[] args) {
         String readLine = fileReader(Constant.FILE_NAME);
-//		Check arguments
+//	Check arguments
         if(args == null || args.length!=1){
             System.out.println("Wrong Argument");
             return;
         }
-
+   // process user input
         if (args[0].equals(Constant.ShowAll)) {
             System.out.println(Constant.DataLoadedText);
             try {
@@ -66,6 +67,7 @@ public class StudentList {
             } catch (Exception e) {
             }
             System.out.println(Constant.DataLoadedText);
+
         } else if (args[0].equals(Constant.ShowCount)) {
             System.out.println(Constant.LoadingDataText);
             try {
@@ -80,11 +82,12 @@ public class StudentList {
             System.out.println("Wrong argument");
         }
     }
+
     public static String fileReader(String fileName) {
         try {
             BufferedReader s = new BufferedReader(
-                    new InputStreamReader(
-                            new FileInputStream(fileName)));
+                               new InputStreamReader(
+                               new FileInputStream(fileName)));
             return s.readLine();
         } catch (Exception e) {
 
