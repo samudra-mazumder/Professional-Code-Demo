@@ -27,7 +27,6 @@ public class StudentList {
         } else if (args[0].equals(Constant.ShowRandom)) {
             System.out.println(Constant.LoadingDataText);
             try {
-
                 String students[] = readLine.split(Constant.StudentEntryDelimeter
                 );
                 int randomInt = new Random().nextInt(students.length);
