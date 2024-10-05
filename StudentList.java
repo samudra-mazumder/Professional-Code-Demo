@@ -6,21 +6,21 @@ public class StudentList {
     public static void main(String[] args) {
         if(args == null || args.length!=1)
             System.out.println("Wrong Argument");
-       String readLine = LoadData("students.txt");
+       String readLine = LoadData(Constants.FILE_NAME);
 //		Check arguments
-        if (args[0].equals("a")) {
-            System.out.println("Loading data ...");
+        if (args[0].equals(Constants.ShowAll)) {
+            System.out.println(Constants.LoadingDataText);
             try {
 
-                String strings[] = readLine.split(",");
+                String strings[] = readLine.split(Constants.StudentEntryDelimiter);
                 for (String j : strings) {
                     System.out.println(j.trim());
                 }
             } catch (Exception e) {
             }
-            System.out.println("Data Loaded.");
+            System.out.println(Constants.DataLoadedText);
         } else if (args[0].equals("r")) {
-            System.out.println("Loading data ...");
+            System.out.println(Constants.LoadingDataText);
             try {
                 String strings[] = readLine.split(",");
                 Random random = new Random();
